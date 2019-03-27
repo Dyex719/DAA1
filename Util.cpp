@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 #include "Util.h"
+#include "Graham.h"
 using namespace std;
 
 int Util::getLeft(vector<Point> points)
@@ -32,6 +33,17 @@ int Util::getOrientation(Point a,Point b,Point c)
   else
       return -1;
 }
+int comparepolar(Point p1, Point p2)
+{
+
+// Find orientation
+Util helper;
+int o = helper.getOrientation(p0, p1, p2);
+if (o == 0)
+	return (helper.getEuclideanDistance(p0, p2) >= helper.getEuclideanDistance(p0, p1))? -1 : 1;
+
+return (o == 2)? -1: 1;
+}
 
 // void Util::swapPoints(Point &a, Point &b)
 // {
@@ -40,3 +52,9 @@ int Util::getOrientation(Point a,Point b,Point c)
 //   Point a = Point b;
 //   Point b = temp;
 // }
+
+vector<Point> Util::sortPolar(vector<Point> points)
+{
+  sort(points.begin(), points.end(), comparepolar);
+  return points;
+}

@@ -2,6 +2,8 @@
 #define Util_H
 #include<bits/stdc++.h>
 #include "Point.h"
+#include "Graham.h"
+
 using namespace std;
 
 class Util
@@ -11,7 +13,7 @@ class Util
     double getEuclideanDistance(Point a,Point b);
     int getOrientation(Point a,Point b,Point c);
     vector<Point> sortPolar(vector<Point> points);
-    static int compare(const void *vp1, const void *vp2);
+    static int compare(Point a, Point b);
     // Point p0;
 
 

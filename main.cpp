@@ -2,24 +2,14 @@
 // #include <iostream>
 #include "Util.h"
 #include "Stackp.h"
+#include "Graham.h"
 #include<bits/stdc++.h>
 
 using namespace std;
 
 Util helper;
 
-Point p0; // Include the first point in grahams scan thing
-
-int comparepolar(Point p1, Point p2)
-{
-
-// Find orientation
-int o = helper.getOrientation(p0, p1, p2);
-if (o == 0)
-	return (helper.getEuclideanDistance(p0, p2) >= helper.getEuclideanDistance(p0, p1))? -1 : 1;
-
-return (o == 2)? -1: 1;
-}
+// Point p0; // Include the first point in grahams scan thing
 
 void JM(vector<Point> points)
 {
@@ -87,13 +77,14 @@ int main(void)
 // a.printPoint();
 
 // helper.sortPolar(points);
-sort(points.begin(), points.end(), comparepolar);
+// // sort(points.begin(), points.end(), comparepolar);
+//
+// for(int i =0;i<points.size();i++)
+// {
+//   points[i].printPoint();
+// }
 
-for(int i =0;i<points.size();i++)
-{
-  points[i].printPoint();
-}
-
+Graham g(vector<Point> points);
 
 
 
