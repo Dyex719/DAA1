@@ -32,3 +32,23 @@ int Util::getOrientation(Point a,Point b,Point c)
   else
       return -1;
 }
+
+//Change & split the files
+// int Util::compare(const void *vp1, const void *vp2)
+// {
+//    Point *p1 = (Point *)vp1;
+//    Point *p2 = (Point *)vp2;
+//
+//    // Find orientation
+//    int o = getOrientation(this->p0, *p1, *p2);
+//    if (o == 0)
+//      return (getEuclideanDistance(this->p0, *p2) >= getEuclideanDistance(this->p0, *p1))? -1 : 1;
+//
+//    return (o == -1)? -1: 1;
+// }
+//
+// vector<Point> Util::sortPolar(vector<Point> points)
+// {
+//   sort(points.begin(), points.end(), compare);
+//   return points;
+// }

@@ -1,6 +1,7 @@
 #include "Point.h"
 // #include <iostream>
 #include "Util.h"
+#include "Stackp.h"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -64,9 +65,22 @@ int main(void)
   //   points[i].printPoint();
   // }
 
-JM(points);
-// int a = helper.getLeft(points);
-// cout << a;
+// JM(points);
+
+// Stackp st;
+// Point p1(10,20);
+// st.Pushp(p1);
+// Point a  = st.Pop();
+// a.printPoint();
+
+// helper.sortPolar(points);
+// helper.p0 = points[0];
+// for(int i =0;i<points.size();i++)
+// {
+//   points[i].printPoint();
+// }
+
+
 
 
 }
