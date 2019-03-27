@@ -8,6 +8,19 @@ using namespace std;
 
 Util helper;
 
+Point p0; // Include the first point in grahams scan thing
+
+int comparepolar(Point p1, Point p2)
+{
+
+// Find orientation
+int o = helper.getOrientation(p0, p1, p2);
+if (o == 0)
+	return (helper.getEuclideanDistance(p0, p2) >= helper.getEuclideanDistance(p0, p1))? -1 : 1;
+
+return (o == 2)? -1: 1;
+}
+
 void JM(vector<Point> points)
 {
   int left_idx = helper.getLeft(points);
@@ -47,12 +60,12 @@ int main(void)
     // p1.setXY(10,15);
 
     // Access values assigned by constructor
-    // cout << "p1.x = " << p1.getX() << ", p1.y = " << p1.getY();
+    // cout << "p1.getX() = " << p1.getX() << ", p1.getY() = " << p1.getY();
     // p1.printPoint();
     // ***************************************
 
     ifstream input("points.txt");
-    int x, y;
+    double x, y;
     char comma;
     vector<Point> points;
     while (input >> x >> comma >> y)
@@ -74,11 +87,12 @@ int main(void)
 // a.printPoint();
 
 // helper.sortPolar(points);
-// helper.p0 = points[0];
-// for(int i =0;i<points.size();i++)
-// {
-//   points[i].printPoint();
-// }
+sort(points.begin(), points.end(), comparepolar);
+
+for(int i =0;i<points.size();i++)
+{
+  points[i].printPoint();
+}
 
 
 
