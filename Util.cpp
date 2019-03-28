@@ -2,6 +2,7 @@
 #include "Util.h"
 #include "Graham.h"
 using namespace std;
+Point p0;
 
 int Util::getLeft(vector<Point> points)
 {
