@@ -13,8 +13,9 @@ class Stackp
     Point Pop();
     Point getTop();
     int getLength();
+    bool isEmpty();
+    Point getSecond();
   private:
-    Point top;
     int length;
     vector<Point> v;
 };

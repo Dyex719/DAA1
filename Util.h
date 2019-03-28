@@ -14,6 +14,8 @@ class Util
     int getOrientation(Point a,Point b,Point c);
     vector<Point> sortPolar(vector<Point> points);
     static int compare(Point a, Point b);
+    void swapPoints(Point &a, Point &b);
+
     // Point p0;
 
 

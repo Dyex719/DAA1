@@ -22,27 +22,39 @@ Stackp::Stackp()
 void Stackp::Pushp(Point p)
 {
   this->v.push_back(p);
+  // cout << this->v.size();
+  this->length++;
 }
-//
+
 Point Stackp::Pop()
 {
-  return v.back();
+  this->v.pop_back();
+  // cout << this->v.size();
+  this->length--;
+
+}
+
+Point Stackp::getTop()
+{
+  return this->v.back();
+
 }
 //
-// Stack::getTop()
-// {
-//   return top;
-// }
+int Stackp::getLength()
+{
+  return length;
+}
 //
-// Stack::getLength(Point p)
-// {
-//   return length;
-// }
-//
-// bool Stack::isEmpty()
-// {
-//   if(top==-999)
-//     return true;
-//   else
-//     return false;
-// }
+bool Stackp::isEmpty()
+{
+  if(length==0)
+    return true;
+  else
+    return false;
+}
+
+Point Stackp::getSecond()
+{
+  return *(this->v.rbegin() + 1);
+
+}

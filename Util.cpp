@@ -46,13 +46,13 @@ if (o == 0)
 return (o == 2)? -1: 1;
 }
 
-// void Util::swapPoints(Point &a, Point &b)
-// {
-//   Point temp;
-//   temp = Point a;
-//   Point a = Point b;
-//   Point b = temp;
-// }
+void Util::swapPoints(Point &a, Point &b)
+{
+  Point temp;
+  temp = a;
+  a = b;
+  b = temp;
+}
 
 vector<Point> Util::sortPolar(vector<Point> points)
 {

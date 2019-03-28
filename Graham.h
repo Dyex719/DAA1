@@ -11,8 +11,6 @@ class Graham
 {
 	public:
 		Graham(vector<Point> points);
-
-
 };
 
 #endif

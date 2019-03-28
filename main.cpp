@@ -70,21 +70,34 @@ int main(void)
 
 // JM(points);
 
+
+// Testing stack
 // Stackp st;
 // Point p1(10,20);
-// st.Pushp(p1);
-// Point a  = st.Pop();
+// st.Pushp(points[0]);
+// st.Pushp(points[1]);
+// cout << st.getLength();
+// Point a  = st.getTop();
 // a.printPoint();
+// Point b  = st.getSecond();
+// b.printPoint();
+// a= st.Pop();
+// cout << st.getLength();
+// cout << st.isEmpty();
+// b= st.Pop();
+// cout << st.getLength();
+// cout << st.isEmpty();
 
-// helper.sortPolar(points);
-// // sort(points.begin(), points.end(), comparepolar);
-//
-// for(int i =0;i<points.size();i++)
-// {
-//   points[i].printPoint();
-// }
 
-Graham g(vector<Point> points);
+helper.sortPolar(points);
+// sort(points.begin(), points.end(), comparepolar);
+
+for(int i =0;i<points.size();i++)
+{
+  points[i].printPoint();
+}
+
+// Graham g(vector<Point> points);
 
 
 
