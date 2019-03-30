@@ -1,9 +1,9 @@
-#include "Stackp.h"
+#include "Stack.h"
 using namespace std;
 #define max_size 1000
 #include<bits/stdc++.h>
 
-Stackp::Stackp()
+Stack::Stack()
 {
   // this->v = stack(max_size)
   // vector<Point> v(max_size);
@@ -19,14 +19,14 @@ Stackp::Stackp()
 //   top = p;
 // }
 
-void Stackp::Pushp(Point p)
+void Stack::Push(Point p)
 {
   this->v.push_back(p);
   // cout << this->v.size();
   this->length++;
 }
 
-Point Stackp::Pop()
+Point Stack::Pop()
 {
   this->v.pop_back();
   // cout << this->v.size();
@@ -34,18 +34,18 @@ Point Stackp::Pop()
 
 }
 
-Point Stackp::getTop()
+Point Stack::getTop()
 {
   return this->v.back();
 
 }
 //
-int Stackp::getLength()
+int Stack::getLength()
 {
   return this->length;
 }
 //
-bool Stackp::isEmpty()
+bool Stack::isEmpty()
 {
   if(length==0)
     return true;
@@ -53,7 +53,7 @@ bool Stackp::isEmpty()
     return false;
 }
 
-Point Stackp::getSecond()
+Point Stack::getSecond()
 {
   return *(this->v.rbegin() + 1);
 

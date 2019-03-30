@@ -1,15 +1,15 @@
-#ifndef STACKP_H
-#define STACKP_H
+#ifndef Stack_H
+#define Stack_H
 #include<bits/stdc++.h>
 using namespace std;
 #include "Point.h"
 // #define max_size 1000
 
-class Stackp
+class Stack
 {
   public:
-    Stackp();
-    void Pushp(Point p);
+    Stack();
+    void Push(Point p);
     Point Pop();
     Point getTop();
     int getLength();

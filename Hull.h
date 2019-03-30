@@ -13,6 +13,8 @@ class Hull
 		// Hull();
 		// Hull(vector<Point> points);
 		void JM(vector<Point> points);
+		void GS(vector<Point> points);
+
 
 };
 

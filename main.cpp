@@ -1,45 +1,46 @@
 #include "Point.h"
 // #include <iostream>
 #include "Util.h"
-#include "Stackp.h"
-#include "Graham.h"
+#include "Stack.h"
+#include "Hull.h"
 #include<bits/stdc++.h>
+Hull h;
 
 using namespace std;
 
-Util helper;
-// Graham g;
-// Point p0; // Include the first point in grahams scan thing
+// Util helper;
+// Hull g;
+// Point p0; // Include the first point in Hulls scan thing
 
-void JM(vector<Point> points)
-{
-  int left_idx = helper.getLeft(points);
-  int p,q,r;
-  int size = points.size();
-  vector<Point> convex;
-  p = left_idx;
-
-  do
-  {
-    q = (p+1)%size;
-    convex.push_back(points[p]);
-    for(int i=0;i<size;i++)
-    {
-      // cout << helper.getOrientation(points[p],points[i],points[q]);
-      if(helper.getOrientation(points[p],points[i],points[q])==-1)
-      {
-        q = i;
-      }
-    }
-    p = q;
-  }
-  while(p!=left_idx);
-
-  for (int i = 0; i < convex.size(); i++)
-      cout << "(" << convex[i].getX() << ", "
-            << convex[i].getY() << ")\n";
-
-}
+// void JM(vector<Point> points)
+// {
+//   int left_idx = helper.getLeft(points);
+//   int p,q,r;
+//   int size = points.size();
+//   vector<Point> convex;
+//   p = left_idx;
+//
+//   do
+//   {
+//     q = (p+1)%size;
+//     convex.push_back(points[p]);
+//     for(int i=0;i<size;i++)
+//     {
+//       // cout << helper.getOrientation(points[p],points[i],points[q]);
+//       if(helper.getOrientation(points[p],points[i],points[q])==-1)
+//       {
+//         q = i;
+//       }
+//     }
+//     p = q;
+//   }
+//   while(p!=left_idx);
+//
+//   for (int i = 0; i < convex.size(); i++)
+//       cout << "(" << convex[i].getX() << ", "
+//             << convex[i].getY() << ")\n";
+//
+// }
 
 
 
@@ -54,7 +55,8 @@ int main(void)
     // p1.printPoint();
     // ***************************************
 
-    ifstream input("points.txt");
+    string input_path = "./inputs/1.txt";
+    ifstream input(input_path);
     double x, y;
     char comma;
     vector<Point> points;
@@ -72,10 +74,10 @@ int main(void)
 
 
 // Testing stack
-// Stackp st;
+// Stack st;
 // Point p1(10,20);
-// st.Pushp(points[0]);
-// st.Pushp(points[1]);
+// st.Push(points[0]);
+// st.Push(points[1]);
 // cout << st.getLength();
 // Point a  = st.getTop();
 // a.printPoint();
@@ -88,7 +90,9 @@ int main(void)
 // cout << st.getLength();
 // cout << st.isEmpty();
 
-Graham g(points);
+// Hull g(points);
+h.JM(points);
+h.GS(points);
 
 // helper.sortPolar(points);
 // sort(points.begin(), points.end(), comparepolar);
@@ -99,7 +103,7 @@ Graham g(points);
 // }
 // cout << endl;
 
-// Graham g(vector<Point> points);
+// Hull g(vector<Point> points);
 
 
 
