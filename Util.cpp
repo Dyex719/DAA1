@@ -18,15 +18,33 @@ int Util::getLeft(vector<Point> points)
   return min_x;
 }
 
+int Util::getBottom(vector<Point> points)
+{
+  int num = points.size();
+  int min_y = 0;
+  for(int i =0;i<num;i++)
+  {
+    if((points[i].getY()<points[min_y].getY()) || (points[i].getY()==points[min_y].getY() && points[i].getX()<points[min_y].getX()))
+    {
+      min_y = i;
+    }
+  }
+  return min_y;
+}
+
+
+
 double Util::getEuclideanDistance(Point a,Point b)
 {
   double distance = sqrt(pow(a.getY()-b.getY(),2)+pow(a.getX()-b.getX(),2));
   return distance;
 }
 
+//sortpolar is wrong
 int Util::getOrientation(Point a,Point b,Point c)
 {
-  double cross_product = (b.getY()-a.getY())*(c.getX()-b.getX())-(b.getX()-a.getX())*(c.getY()-b.getY());
+  int cross_product = ((b.getY()-a.getY())*(c.getX()-b.getX()))-((b.getX()-a.getX())*(c.getY()-b.getY()));
+  // cout << cross_product << endl;
   if(cross_product==0)
       return 0;
   else if(cross_product>0)
@@ -34,16 +52,25 @@ int Util::getOrientation(Point a,Point b,Point c)
   else
       return -1;
 }
+
 int comparepolar(Point p1, Point p2)
 {
-
+// p0.printPoint();
+// cout << endl;
 // Find orientation
 Util helper;
 int o = helper.getOrientation(p0, p1, p2);
-if (o == 0)
+// cout << o << endl;
+if (o == 0){
+ // p0.printPoint();
+ // p1.printPoint();
+ // p2.printPoint();
+ // cout << helper.getEuclideanDistance(p0, p2);
+ // cout << helper.getEuclideanDistance(p0, p1);
+ // cout << endl;
 	return (helper.getEuclideanDistance(p0, p2) >= helper.getEuclideanDistance(p0, p1))? -1 : 1;
-
-return (o == 2)? -1: 1;
+}
+return (o ==-1)? -1: 1;
 }
 
 void Util::swapPoints(Point &a, Point &b)
@@ -56,6 +83,18 @@ void Util::swapPoints(Point &a, Point &b)
 
 vector<Point> Util::sortPolar(vector<Point> points)
 {
+  // p0.printPoint();
+  // cout << endl;
   sort(points.begin(), points.end(), comparepolar);
+  // printAllPoints(points);
   return points;
+}
+
+void Util::printAllPoints(vector<Point> points)
+{
+  for(int i =0;i<points.size();i++)
+  {
+    points[i].printPoint();
+  }
+  cout << endl;
 }

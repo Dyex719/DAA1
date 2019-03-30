@@ -15,6 +15,9 @@ class Util
     vector<Point> sortPolar(vector<Point> points);
     static int compare(Point a, Point b);
     void swapPoints(Point &a, Point &b);
+    int getBottom(vector<Point> points);
+    void printAllPoints(vector<Point> points);
+
 
     // Point p0;
 

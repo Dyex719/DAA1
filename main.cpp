@@ -8,7 +8,7 @@
 using namespace std;
 
 Util helper;
-
+// Graham g;
 // Point p0; // Include the first point in grahams scan thing
 
 void JM(vector<Point> points)
@@ -88,14 +88,16 @@ int main(void)
 // cout << st.getLength();
 // cout << st.isEmpty();
 
+Graham g(points);
 
-helper.sortPolar(points);
+// helper.sortPolar(points);
 // sort(points.begin(), points.end(), comparepolar);
 
-for(int i =0;i<points.size();i++)
-{
-  points[i].printPoint();
-}
+// for(int i =0;i<points.size();i++)
+// {
+//   points[i].printPoint();
+// }
+// cout << endl;
 
 // Graham g(vector<Point> points);
 

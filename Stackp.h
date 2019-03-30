@@ -16,7 +16,7 @@ class Stackp
     bool isEmpty();
     Point getSecond();
   private:
-    int length;
+    int length = 0;
     vector<Point> v;
 };
 

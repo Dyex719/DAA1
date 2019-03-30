@@ -42,7 +42,7 @@ Point Stackp::getTop()
 //
 int Stackp::getLength()
 {
-  return length;
+  return this->length;
 }
 //
 bool Stackp::isEmpty()
