@@ -10,12 +10,8 @@ extern Point p0;
 class Hull
 {
 	public:
-		// Hull();
-		// Hull(vector<Point> points);
 		void JM(vector<Point> points);
 		void GS(vector<Point> points);
-
-
 };
 
 #endif

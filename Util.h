@@ -9,19 +9,15 @@ using namespace std;
 class Util
 {
   public:
-    int getLeft(vector<Point> points);
-    double getEuclideanDistance(Point a,Point b);
-    int getOrientation(Point a,Point b,Point c);
-    vector<Point> sortPolar(vector<Point> points);
+    int findLeft(vector<Point> points);
+    double findEuclideanDistance(Point a,Point b);
+    int findOrientation(Point a,Point b,Point c);
+    void sortPolar(vector<Point> points);
     static int compare(Point a, Point b);
     void swapPoints(Point &a, Point &b);
-    int getBottom(vector<Point> points);
+    int findBottom(vector<Point> points);
     void printAllPoints(vector<Point> points);
-
-
-    // Point p0;
-
-
+    vector<Point> getInput(string input_path);
 };
 
 #endif

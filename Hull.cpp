@@ -8,55 +8,72 @@
 using namespace std;
 
 Util u;
+Stack s;
+
 
 int compare(const void *vp1, const void *vp2)
 {
-Point *p1 = (Point *)vp1;
-Point *p2 = (Point *)vp2;
+  Point *p1 = (Point *)vp1;
+  Point *p2 = (Point *)vp2;
 
-// Find orientation
-int o = u.getOrientation(p0, *p1, *p2);
-if (o == 0)
-	return (u.getEuclideanDistance(p0, *p2) >= u.getEuclideanDistance(p0, *p1))? -1 : 1;
-
-return (o == -1)? -1: 1;
+  int turn = u.findOrientation(p0, *p1, *p2);
+  if (turn == 0)
+  	return (u.findEuclideanDistance(p0, *p2) >= u.findEuclideanDistance(p0, *p1))? -1 : 1;
+  else if(turn==-1)
+    return -1;
+  else
+    return 1;
 }
+
+// int comparep(Point p1, Point p2)
+// {
+// // Find orientation
+// // p1.printPoint();
+// // cout << " ";
+// // p2.printPoint();
+// // cout << endl;
+// int turn = u.findOrientation(p0, p1, p2);
+// if (turn == 0)
+// 	return (u.findEuclideanDistance(p0, p2) >= u.findEuclideanDistance(p0, p1))? -1 : 1;
+//
+// return (turn == -1)? -1: 1;
+// }
 
 void Hull::GS(vector<Point> points)
 {
-  int min_y  = u.getBottom(points);
+  int min_y  = u.findBottom(points);
   u.swapPoints(points[0],points[min_y]);
   Point p0 = points[0];
-  int n = points.size();
-  qsort(&points[1], n-1, sizeof(Point), compare);
-
-  // points = u.sortPolar(points);
+  int size = points.size();
+  vector<Point> copy = points;
+  qsort(&points[1], size-1, sizeof(Point), compare);
   // u.printAllPoints(points);
 
-  int m =1;
+  // sort(copy.begin()+2, copy.end(), comparep);
+  // u.printAllPoints(copy);
+
+
+  int new_size =1;
     // p0.printPoint();
   // u.printAllPoints(points);
-  for (int i=1; i<n; i++)
+  for (int i=1; i<size; i++)
   {
         // points[i].printPoint();
       // Keep removing i while angle of i and i+1 is same
       // with respect to p0
-      while (i < n-1 && u.getOrientation(p0, points[i],
-                                   points[i+1]) == 0)
+      while (i < size-1 && u.findOrientation(p0, points[i], points[i+1]) == 0)
          i++;
 
 
-      points[m] = points[i];
-      m++;  // Update size of modified array
+      points[new_size] = points[i];
+      new_size++;  // Update size of modified array
+      // if(u.findOrientation(p0, points[i], points[i+1]) == 0) points.erase(points.begin()+i);
+
   }
+  // new_size = points.size();
+// u.printAllPoints(points);
 
-  // for(int i =0;i<m;i++)
-  // {
-  //   points[i].printPoint();
-  // }
-  // cout << endl;
-
-  if (m < 3)
+  if (new_size < 3)
   {
     cout << "Convex hull not possible with 3 points";
     exit(0);
@@ -65,18 +82,18 @@ void Hull::GS(vector<Point> points)
   // u.printAllPoints(points);
 
 
-   Stack s;
+   // Stack s;
    s.Push(points[0]);
    s.Push(points[1]);
    s.Push(points[2]);
 
-   // Process remaining n-3 points
-   for (int i = 3; i < m; i++)
+   // Process remaining size-3 points
+   for (int i = 3; i < new_size; i++)
    {
       // Keep removing top while the angle formed by
       // points next-to-top, top, and points[i] makes
       // a non-left turn
-      while (u.getOrientation(s.getSecond(), s.getTop(), points[i]) != -1)
+      while (u.findOrientation(s.getSecond(), s.Top(), points[i]) != -1)
          s.Pop();
       s.Push(points[i]);
    }
@@ -87,7 +104,7 @@ void Hull::GS(vector<Point> points)
    myfile.open ("./outputs/1g.txt");
    while (!s.isEmpty())
    {
-       Point p = s.getTop();
+       Point p = s.Top();
        // p.printPoint();
         myfile << p.getX() << ", " << p.getY() << endl;
        s.Pop();
@@ -102,27 +119,27 @@ void Hull::GS(vector<Point> points)
 
 void Hull::JM(vector<Point> points)
 {
-  int left_idx = u.getLeft(points);
-  int p,q,r;
+  int left_idx = u.findLeft(points);
+  int current,follow;
   int size = points.size();
   vector<Point> convex;
-  p = left_idx;
+  current = left_idx;
 
   do
   {
-    q = (p+1)%size;
-    convex.push_back(points[p]);
+    follow = (current+1)%size;
+    convex.push_back(points[current]);
     for(int i=0;i<size;i++)
     {
-      // cout << u.getOrientation(points[p],points[i],points[q]);
-      if(u.getOrientation(points[p],points[i],points[q])==-1)
+      if(u.findOrientation(points[current],points[i],points[follow])==-1)
       {
-        q = i;
+        follow = i;
       }
     }
-    p = q;
+    current = follow;
   }
-  while(p!=left_idx);
+  while(current!=left_idx);
+
   ofstream myfile;
   myfile.open ("./outputs/1j.txt");
   for (int i = 0; i < convex.size(); i++)

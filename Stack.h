@@ -3,15 +3,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 #include "Point.h"
-// #define max_size 1000
 
 class Stack
 {
   public:
-    Stack();
     void Push(Point p);
     Point Pop();
-    Point getTop();
+    Point Top();
     int getLength();
     bool isEmpty();
     Point getSecond();
