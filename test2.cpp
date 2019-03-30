@@ -2,25 +2,20 @@
 // https://www.geeksforgeeks.org/orientation-3-ordered-points/
 // for explanation of orientation()
 #include <iostream>
-#include <stack>
+#include "Stack.h"
 #include <stdlib.h>
 using namespace std;
 #include<bits/stdc++.h>
 #include "Point.h"
+#include "Util.h"
 
 // A global point needed for  sorting points with reference
 // to  the first point Used in compare function of qsort()
-Point p0;
+// Point p0;
+Stack s;
+Util u;
+// A utility function to find next to Top in a stack
 
-// A utility function to find next to top in a stack
-Point nextToTop(stack<Point> &S)
-{
-    Point p = S.top();
-    S.pop();
-    Point res = S.top();
-    S.push(p);
-    return res;
-}
 
 // A utility function to swap two points
 int swap(Point &p1, Point &p2)
@@ -118,28 +113,41 @@ void convexHull(Point points[], int n)
 
    // Create an empty stack and push first three points
    // to it.
-   stack<Point> S;
-   S.push(points[0]);
-   S.push(points[1]);
-   S.push(points[2]);
+   s.Push(points[0]);
+   s.Push(points[1]);
+   s.Push(points[2]);
 
-   // Process remaining n-3 points
+   // points[0].printPoint();
+   // cout << s.getLength() << endl;
+   // Point getX() = s.Top();
+   // getX().printPoint();
+   // Point getY() = s.getSecond();
+   // getY().printPoint();
+   // cout << s.getSecond()<< endl;
+
+   // Process remaining size-3 points
    for (int i = 3; i < m; i++)
    {
-      // Keep removing top while the angle formed by
-      // points next-to-top, top, and points[i] makes
+      // cout << s.getLength();
+      // points[i].printPoint();
+      // Keep removing Top while the angle formed by
+      // points next-to-Top, Top, and points[i] makes
       // a non-left turn
-      while (orientation(nextToTop(S), S.top(), points[i]) != 2)
-         S.pop();
-      S.push(points[i]);
-   }
+      while (u.findOrientation(s.getSecond(), s.Top(), points[i]) != -1)
+      {
+        s.Pop();
+      }
+      s.Push(points[i]);
+      // Point getX() = s.Top();
+      // getX().printPoint();
+ }
 
    // Now stack has the output points, print contents of stack
-   while (!S.empty())
+   while (!s.isEmpty())
    {
-       Point p = S.top();
+       Point p = s.Top();
        cout << "(" << p.getX() << ", " << p.getY() <<")" << endl;
-       S.pop();
+       s.Pop();
    }
 }
 
