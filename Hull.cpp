@@ -173,11 +173,11 @@ void Hull::GS(vector<Point> points)
       // getX().printPoint();
  }
  ofstream myfile;
-   myfile.open ("./outputs/2g.txt");
+   myfile.open ("./outputs/4g.txt");
    while (!s.isEmpty())
    {
        Point p = s.Top();
-       p.printPoint();
+       // p.printPoint();
         myfile << p.getX() << ", " << p.getY() << endl;
        s.Pop();
    }
@@ -356,7 +356,7 @@ void Hull::JM(vector<Point> points)
   while(current!=left_idx);
 
   ofstream myfile;
-  myfile.open ("./outputs/3j.txt");
+  myfile.open ("./outputs/4j.txt");
   for (int i = 0; i < convex.size(); i++)
   {
     myfile << convex[i].getX() << ", " << convex[i].getY() << endl;
