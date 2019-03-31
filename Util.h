@@ -30,6 +30,9 @@ class Util
     int findBottom(vector<Point> points);
     void printAllPoints(vector<Point> points);
     vector<Point> getInput(string input_path);
+    Point leftmostPointl(vector<Point> points);
+    Point rightmostPointl(vector<Point> points);
+    vector<Point> Lowerhull(Point pmin,Point pmax,vector<Point> points);
 };
 
 #endif
