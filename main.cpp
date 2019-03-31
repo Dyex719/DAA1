@@ -11,7 +11,7 @@ Util f;
 
 int main(void)
 {
-  string input_path = "./inputs/3.txt";
+  string input_path = "./inputs/2.txt";
   vector<Point> points = f.getInput(input_path);
   h.JM(points);
   h.GS(points);

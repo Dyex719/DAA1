@@ -1,6 +1,6 @@
 // A C++ program to find convex hull of a set of points. Refer
-// https://www.geeksforgeeks.org/orientation-3-ordered-points/
-// for explanation of orientation()
+// https://www.geeksforgeeks.org/u.findOrientation-3-ordered-points/
+// for explanation of u.findOrientation()
 #include <iostream>
 #include "Stack.h"
 #include <stdlib.h>
@@ -17,35 +17,35 @@ Util u;
 // A utility function to find next to Top in a stack
 
 
-// A utility function to swap two points
-int swap(Point &p1, Point &p2)
-{
-    Point temp = p1;
-    p1 = p2;
-    p2 = temp;
-}
+// A utility function to u.swapPoints two points
+// int u.swapPoints(Point &p1, Point &p2)
+// {
+//     Point temp = p1;
+//     p1 = p2;
+//     p2 = temp;
+// }
 
 // A utility function to return square of distance
 // between p1 and p2
-int distSq(Point p1, Point p2)
-{
-    return (p1.getX() - p2.getX())*(p1.getX() - p2.getX()) +
-          (p1.getY() - p2.getY())*(p1.getY() - p2.getY());
-}
+// int u.findEuclideanDistance(Point p1, Point p2)
+// {
+//     return (p1.getX() - p2.getX())*(p1.getX() - p2.getX()) +
+//           (p1.getY() - p2.getY())*(p1.getY() - p2.getY());
+// }
 
-// To find orientation of ordered triplet (p, q, r).
+// To find u.findOrientation of ordered triplet (p, q, r).
 // The function returns following values
 // 0 --> p, q and r are colinear
 // 1 --> Clockwise
 // 2 --> Counterclockwise
-int orientation(Point p, Point q, Point r)
-{
-    int val = (q.getY() - p.getY()) * (r.getX() - q.getX()) -
-              (q.getX() - p.getX()) * (r.getY() - q.getY());
-
-    if (val == 0) return 0;  // colinear
-    return (val > 0)? 1: 2; // clock or counterclock wise
-}
+// int u.findOrientation(Point p, Point q, Point r)
+// {
+//     int val = (q.getY() - p.getY()) * (r.getX() - q.getX()) -
+//               (q.getX() - p.getX()) * (r.getY() - q.getY());
+//
+//     if (val == 0) return 0;  // colinear
+//     return (val > 0)? 1: 2; // clock or counterclock wise
+// }
 
 // A function used by library function qsort() to sort an array of
 // points with respect to the first point
@@ -54,18 +54,20 @@ int compare(const void *vp1, const void *vp2)
    Point *p1 = (Point *)vp1;
    Point *p2 = (Point *)vp2;
 
-   // Find orientation
-   int o = orientation(p0, *p1, *p2);
+   // Find u.findOrientation
+   int o = u.findOrientation(p0, *p1, *p2);
    if (o == 0)
-     return (distSq(p0, *p2) >= distSq(p0, *p1))? -1 : 1;
+     return (u.findEuclideanDistance(p0, *p2) >= u.findEuclideanDistance(p0, *p1))? -1 : 1;
 
-   return (o == 2)? -1: 1;
+   return (o == -1)? -1: 1;
 }
 
 // Prints convex hull of a set of n points.
-void convexHull(Point points[], int n)
+void convexHull(vector<Point> points, int n)
 {
   // Find the bottommost point
+
+
   int ymin = points[0].getY(), min = 0;
   for (int i = 1; i < n; i++)
   {
@@ -79,14 +81,27 @@ void convexHull(Point points[], int n)
   }
 
    // Place the bottom-most point at first position
-   swap(points[0], points[min]);
+   u.swapPoints(points[0], points[min]);
 
    // Sort n-1 points with respect to the first point.
    // A point p1 comes before p2 in sorted ouput if p2
    // has larger polar angle (in counterclockwise
    // direction) than p1
    p0 = points[0];
-   qsort(&points[1], n-1, sizeof(Point), compare);
+
+   int size = points.size();
+   Point p[size];
+   for(int i=0;i<size;i++)
+   {
+     p[i] = points[i];
+   }
+
+   qsort(&p[1], n-1, sizeof(Point), compare);
+
+   for(int i=0;i<size;i++)
+   {
+     points[i] = p[i];
+   }
 
    // If two or more points make same angle with p0,
    // Remove all but the one that is farthest from p0
@@ -98,7 +113,7 @@ void convexHull(Point points[], int n)
    {
        // Keep removing i while angle of i and i+1 is same
        // with respect to p0
-       while (i < n-1 && orientation(p0, points[i],
+       while (i < n-1 && u.findOrientation(p0, points[i],
                                     points[i+1]) == 0)
           i++;
 
@@ -155,26 +170,11 @@ void convexHull(Point points[], int n)
 int main()
 {
 
-  string input_path = "./inputs/3.txt";
+  string input_path = "./inputs/2.txt";
 
 
-                      ifstream input(input_path);
-                      double x, y;
-                      char comma;
-                      vector<Point> points;
-                      while (input >> x >> comma >> y)
-                      {
-                          points.push_back(Point(x,y));
-                      }
-
-                      int size = points.size();
-                      Point p[size];
-                      for(int i=0;i<size;i++)
-                      {
-                        p[i] = points[i];
-                      }
-
-    int n = sizeof(p)/sizeof(p[0]);
-    convexHull(p, n);
+    vector<Point> points = u.getInput(input_path);
+    int n = points.size();
+    convexHull(points,n);
     return 0;
 }

@@ -1,9 +1,9 @@
 import matplotlib.pyplot as plt
 import imageio
 import os
-points_file = "./inputs/3.txt"
-results_file = "./outputs/3g.txt"
-save_folder = './gifs/res3/'
+points_file = "./inputs/2.txt"
+results_file = "./outputs/2g.txt"
+save_folder = './gifs/res2/'
 
 with open(points_file) as o:
     orig = o.readlines()
