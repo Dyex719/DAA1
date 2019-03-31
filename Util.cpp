@@ -114,7 +114,7 @@ void Util::printAllPoints(vector<Point> points)
   {
     points[i].printPoint();
   }
-  cout << endl;
+  // cout << endl;
 }
 
 /**
@@ -146,6 +146,18 @@ bool rightl(Point p1, Point p2)
 }
 
 Point Util::leftmostPointl(vector<Point> points)
+{
+    sort(points.begin(), points.end(), leftl);
+    return points[0];
+}
+
+
+Point rightmostPointlUtil(vector<Point> points)
+{
+    sort(points.begin(), points.end(), rightl);
+    return points[0];
+}
+Point leftmostPointlUtil(vector<Point> points)
 {
     sort(points.begin(), points.end(), leftl);
     return points[0];
@@ -248,19 +260,19 @@ pair<Point,Point> lowerBridge(vector<Point> S,int num_points,Point L)
 
   vector<double> kmomc;
   kmomc = kmom;
-	 for(int i =0;i< kmom.size();i++)
-	 {
-		 cout << kmom[i] << endl;
-		 pairs[i].first.printPoint();
-		pairs[i].second.printPoint();
+	//  for(int i =0;i< kmom.size();i++)
+	//  {
+	// 	//  cout << kmom[i] << endl;
+	// 	//  pairs[i].first.printPoint();
+	// 	// pairs[i].second.printPoint();
 		
-	 }
+	//  }
  // need to define another medianofmedians for the double values called momd(below). Should be a copy/paste
   double k = momd(kmomc,0,kmom.size()-1,kmom.size()/2); 
   vector<pair<Point,Point>> SMALL;
   vector<pair<Point,Point>> EQUAL;
   vector<pair<Point,Point>> LARGE;
-cout<<"mean slope ="<<k<<endl;
+// cout<<"mean slope ="<<k<<endl;
   for(int i=0;i<pairs.size();i++)
   { 
     // cout <<i<< "  "<<kmom[i]<<endl;
@@ -294,7 +306,7 @@ cout<<"mean slope ="<<k<<endl;
 
     }
   }
-  cout<<"min::"<<min<<endl;
+  // cout<<"min::"<<min<<endl;
 
   for(int i=0;i<num_points;i++)
   {
@@ -306,17 +318,17 @@ cout<<"mean slope ="<<k<<endl;
   // {cout<<i<<"max";
   //   MIN[i].printPoint();
   // }
-  Point pk = leftmostPointu(MIN);
-  Point pm = rightmostPointu(MIN);
-  pk.printPoint();
-  pm.printPoint();
+  Point pk = leftmostPointlUtil(MIN);
+  Point pm = rightmostPointlUtil(MIN);
+  // pk.printPoint();
+  // pm.printPoint();
   if(pk.getX() <= L.getX() && pm.getX() > L.getX())
   {
-  cout<<"pk is :";
-  pk.printPoint();
-  cout<<"pm is :";
-  pm.printPoint();
-  cout<<endl;
+  // cout<<"pk is :";
+  // pk.printPoint();
+  // cout<<"pm is :";
+  // pm.printPoint();
+  // cout<<endl;
   return make_pair(pk,pm);
 
   }
@@ -427,8 +439,8 @@ vector<Point> Util::Lowerhull(Point pmin,Point pmax,vector<Point> points)
     Point pl,pr;
     pl = lb.first;
     pr = lb.second;
-    pl.printPoint();
-    pr.printPoint();
+    // pl.printPoint();
+    // pr.printPoint();
     vector<Point> Tl,Tr;
 	Tl.push_back(pl);
 	Tr.push_back(pr);
@@ -454,15 +466,15 @@ vector<Point> Util::Lowerhull(Point pmin,Point pmax,vector<Point> points)
 			Tr.push_back(TR[i]);
 		}
 	}
-  cout << "Tl" << endl;
-  for(int i=0;i<Tl.size();i++)
-    Tl[i].printPoint();
+  // cout << "Tl" << endl;
+  // for(int i=0;i<Tl.size();i++)
+    // Tl[i].printPoint();
 
-  cout << "Tr" << endl;
-  for(int i=0;i<Tr.size();i++)
-    Tr[i].printPoint();
+  // cout << "Tr" << endl;
+  // for(int i=0;i<Tr.size();i++)
+    // Tr[i].printPoint();
 
-  cout << "End of Tr" << endl;
+  // cout << "End of Tr" << endl;
 
 	
     vector<Point> Lh1,Lh2;
