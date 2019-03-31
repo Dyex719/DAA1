@@ -5,12 +5,6 @@ Build using make
 
 TODO:
 
-1. Replace instances of <bits/stdc++.h> with appropriate libraries
-
-2. Add KPS
-
-3. Add Documentation
-
-4. Clean
-
-5. Test
+1. Add KPS
+2. Check Small Testcases
+3. Change some functions

@@ -1,0 +1,165 @@
+\hypertarget{classUtil}{}\section{Util Class Reference}
+\label{classUtil}\index{Util@{Util}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classUtil_a2b30e2030f853420c6fdc322b9c0baf0}{find\+Left} (vector$<$ \hyperlink{classPoint}{Point} $>$ points)
+\begin{DoxyCompactList}\small\item\em Find the index of the point which has the least X co-\/ordinate. \end{DoxyCompactList}\item 
+double \hyperlink{classUtil_aee5381da3131d816c37c440fea97c84e}{find\+Euclidean\+Distance} (\hyperlink{classPoint}{Point} a, \hyperlink{classPoint}{Point} b)
+\begin{DoxyCompactList}\small\item\em Find the Euclidean distace between two points. \end{DoxyCompactList}\item 
+int \hyperlink{classUtil_aebf1ad2a9ca5faeaca744d4464182170}{find\+Orientation} (\hyperlink{classPoint}{Point} a, \hyperlink{classPoint}{Point} b, \hyperlink{classPoint}{Point} c)
+\begin{DoxyCompactList}\small\item\em Find whether the points passed in make a clockwise turn or an anti-\/clockwise turn. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUtil_aec45879e4089e120607474b34e759a18}\label{classUtil_aec45879e4089e120607474b34e759a18}} 
+void {\bfseries sort\+Polar} (vector$<$ \hyperlink{classPoint}{Point} $>$ points)
+\item 
+void \hyperlink{classUtil_a40ff824653381aaceaa05e60a5300cc1}{swap\+Points} (\hyperlink{classPoint}{Point} \&a, \hyperlink{classPoint}{Point} \&b)
+\begin{DoxyCompactList}\small\item\em Swap the values of two points. \end{DoxyCompactList}\item 
+int \hyperlink{classUtil_a2aa1aedf21bb79a5cc6c13f138735834}{find\+Bottom} (vector$<$ \hyperlink{classPoint}{Point} $>$ points)
+\begin{DoxyCompactList}\small\item\em Find the index of the point which has the least y co-\/ordinate. \end{DoxyCompactList}\item 
+void \hyperlink{classUtil_a178628de18adc2807d3a331a060e62a0}{print\+All\+Points} (vector$<$ \hyperlink{classPoint}{Point} $>$ points)
+\begin{DoxyCompactList}\small\item\em Helper function that prints out the values of all the points in a vector of Points. \end{DoxyCompactList}\item 
+vector$<$ \hyperlink{classPoint}{Point} $>$ \hyperlink{classUtil_a9d498a3fdcb57063895cd379f125e36c}{get\+Input} (string input\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Reads input of co-\/ordinates from a file and stores them in a vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classUtil_a3848d2a1da246c09f8f900b75a689d7f}\label{classUtil_a3848d2a1da246c09f8f900b75a689d7f}} 
+static int {\bfseries compare} (\hyperlink{classPoint}{Point} a, \hyperlink{classPoint}{Point} b)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classUtil_a2aa1aedf21bb79a5cc6c13f138735834}\label{classUtil_a2aa1aedf21bb79a5cc6c13f138735834}} 
+\index{Util@{Util}!find\+Bottom@{find\+Bottom}}
+\index{find\+Bottom@{find\+Bottom}!Util@{Util}}
+\subsubsection{\texorpdfstring{find\+Bottom()}{findBottom()}}
+{\footnotesize\ttfamily int Util\+::find\+Bottom (\begin{DoxyParamCaption}\item[{vector$<$ \hyperlink{classPoint}{Point} $>$}]{points }\end{DoxyParamCaption})}
+
+
+
+Find the index of the point which has the least y co-\/ordinate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em points} & vector$<$\+Point$>$ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int index 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUtil_aee5381da3131d816c37c440fea97c84e}\label{classUtil_aee5381da3131d816c37c440fea97c84e}} 
+\index{Util@{Util}!find\+Euclidean\+Distance@{find\+Euclidean\+Distance}}
+\index{find\+Euclidean\+Distance@{find\+Euclidean\+Distance}!Util@{Util}}
+\subsubsection{\texorpdfstring{find\+Euclidean\+Distance()}{findEuclideanDistance()}}
+{\footnotesize\ttfamily double Util\+::find\+Euclidean\+Distance (\begin{DoxyParamCaption}\item[{\hyperlink{classPoint}{Point}}]{a,  }\item[{\hyperlink{classPoint}{Point}}]{b }\end{DoxyParamCaption})}
+
+
+
+Find the Euclidean distace between two points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \hyperlink{classPoint}{Point} \\
+\hline
+{\em b} & \hyperlink{classPoint}{Point} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUtil_a2b30e2030f853420c6fdc322b9c0baf0}\label{classUtil_a2b30e2030f853420c6fdc322b9c0baf0}} 
+\index{Util@{Util}!find\+Left@{find\+Left}}
+\index{find\+Left@{find\+Left}!Util@{Util}}
+\subsubsection{\texorpdfstring{find\+Left()}{findLeft()}}
+{\footnotesize\ttfamily int Util\+::find\+Left (\begin{DoxyParamCaption}\item[{vector$<$ \hyperlink{classPoint}{Point} $>$}]{points }\end{DoxyParamCaption})}
+
+
+
+Find the index of the point which has the least X co-\/ordinate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em points} & vector$<$\+Point$>$ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int index 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUtil_aebf1ad2a9ca5faeaca744d4464182170}\label{classUtil_aebf1ad2a9ca5faeaca744d4464182170}} 
+\index{Util@{Util}!find\+Orientation@{find\+Orientation}}
+\index{find\+Orientation@{find\+Orientation}!Util@{Util}}
+\subsubsection{\texorpdfstring{find\+Orientation()}{findOrientation()}}
+{\footnotesize\ttfamily int Util\+::find\+Orientation (\begin{DoxyParamCaption}\item[{\hyperlink{classPoint}{Point}}]{a,  }\item[{\hyperlink{classPoint}{Point}}]{b,  }\item[{\hyperlink{classPoint}{Point}}]{c }\end{DoxyParamCaption})}
+
+
+
+Find whether the points passed in make a clockwise turn or an anti-\/clockwise turn. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \hyperlink{classPoint}{Point} \\
+\hline
+{\em b} & \hyperlink{classPoint}{Point} \\
+\hline
+{\em c} & \hyperlink{classPoint}{Point} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 0 -\/$>$ Colinear 1 -\/$>$ Clockwise -\/1 -\/$>$ Counterclockwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUtil_a9d498a3fdcb57063895cd379f125e36c}\label{classUtil_a9d498a3fdcb57063895cd379f125e36c}} 
+\index{Util@{Util}!get\+Input@{get\+Input}}
+\index{get\+Input@{get\+Input}!Util@{Util}}
+\subsubsection{\texorpdfstring{get\+Input()}{getInput()}}
+{\footnotesize\ttfamily vector$<$ \hyperlink{classPoint}{Point} $>$ Util\+::get\+Input (\begin{DoxyParamCaption}\item[{string}]{input\+\_\+path }\end{DoxyParamCaption})}
+
+
+
+Reads input of co-\/ordinates from a file and stores them in a vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+\_\+path} & Location of the input file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector$<$\+Point$>$ vector in which the input is stored 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUtil_a178628de18adc2807d3a331a060e62a0}\label{classUtil_a178628de18adc2807d3a331a060e62a0}} 
+\index{Util@{Util}!print\+All\+Points@{print\+All\+Points}}
+\index{print\+All\+Points@{print\+All\+Points}!Util@{Util}}
+\subsubsection{\texorpdfstring{print\+All\+Points()}{printAllPoints()}}
+{\footnotesize\ttfamily void Util\+::print\+All\+Points (\begin{DoxyParamCaption}\item[{vector$<$ \hyperlink{classPoint}{Point} $>$}]{points }\end{DoxyParamCaption})}
+
+
+
+Helper function that prints out the values of all the points in a vector of Points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em points} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUtil_a40ff824653381aaceaa05e60a5300cc1}\label{classUtil_a40ff824653381aaceaa05e60a5300cc1}} 
+\index{Util@{Util}!swap\+Points@{swap\+Points}}
+\index{swap\+Points@{swap\+Points}!Util@{Util}}
+\subsubsection{\texorpdfstring{swap\+Points()}{swapPoints()}}
+{\footnotesize\ttfamily void Util\+::swap\+Points (\begin{DoxyParamCaption}\item[{\hyperlink{classPoint}{Point} \&}]{a,  }\item[{\hyperlink{classPoint}{Point} \&}]{b }\end{DoxyParamCaption})}
+
+
+
+Swap the values of two points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \hyperlink{classPoint}{Point} \\
+\hline
+{\em b} & \hyperlink{classPoint}{Point} \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Util_8h}{Util.\+h}\item 
+\hyperlink{Util_8cpp}{Util.\+cpp}\end{DoxyCompactItemize}

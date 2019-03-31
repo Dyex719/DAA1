@@ -1,9 +1,21 @@
+/**
+ * @file Util.h
+ * @author your name (you@domain.com)
+ * @brief Header file for Util Class
+ * @version 0.1
+ * @date 2019-03-31
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
 #ifndef Util_H
 #define Util_H
-#include<bits/stdc++.h>
+#include<fstream>
+#include<iostream>
+#include<string>
+#include<vector>
 #include "Point.h"
 #include "Hull.h"
-
 using namespace std;
 
 class Util

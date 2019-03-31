@@ -1,6 +1,16 @@
+/**
+ * @file Stack.h
+ * @author your name (you@domain.com)
+ * @brief Header file for Stack Class
+ * @version 0.1
+ * @date 2019-03-31
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
 #ifndef Stack_H
 #define Stack_H
-#include<bits/stdc++.h>
+#include<vector>
 using namespace std;
 #include "Point.h"
 

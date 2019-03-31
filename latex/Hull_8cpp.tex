@@ -1,0 +1,73 @@
+\hypertarget{Hull_8cpp}{}\section{Hull.\+cpp File Reference}
+\label{Hull_8cpp}\index{Hull.\+cpp@{Hull.\+cpp}}
+
+
+This contains all the implementations of the convex hull algorithms.  
+
+
+{\ttfamily \#include \char`\"{}Point.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Hull.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Stack.\+h\char`\"{}}\newline
+Include dependency graph for Hull.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Hull_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{Hull_8cpp_abe415da8461fb25b5233ff151f55681e}{compare} (const void $\ast$vp1, const void $\ast$vp2)
+\begin{DoxyCompactList}\small\item\em This is a comparator function used in Graham Scan to sort the points according to their polar angle wrt to the first point. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{Hull_8cpp_a3986a54502c5144e52a71361fcba7adb}\label{Hull_8cpp_a3986a54502c5144e52a71361fcba7adb}} 
+\hyperlink{classUtil}{Util} {\bfseries u}
+\item 
+\mbox{\Hypertarget{Hull_8cpp_a4fd0aab8d4264b264540df3e0e09dd05}\label{Hull_8cpp_a4fd0aab8d4264b264540df3e0e09dd05}} 
+\hyperlink{classStack}{Stack} {\bfseries s}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This contains all the implementations of the convex hull algorithms. 
+
+\begin{DoxyAuthor}{Author}
+your name (\href{mailto:you@domain.com}{\tt you@domain.\+com}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2019-\/03-\/31
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2019 
+\end{DoxyCopyright}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{Hull_8cpp_abe415da8461fb25b5233ff151f55681e}\label{Hull_8cpp_abe415da8461fb25b5233ff151f55681e}} 
+\index{Hull.\+cpp@{Hull.\+cpp}!compare@{compare}}
+\index{compare@{compare}!Hull.\+cpp@{Hull.\+cpp}}
+\subsubsection{\texorpdfstring{compare()}{compare()}}
+{\footnotesize\ttfamily int compare (\begin{DoxyParamCaption}\item[{const void $\ast$}]{vp1,  }\item[{const void $\ast$}]{vp2 }\end{DoxyParamCaption})}
+
+
+
+This is a comparator function used in Graham Scan to sort the points according to their polar angle wrt to the first point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vp1} & const void pointer of type \hyperlink{classPoint}{Point} \\
+\hline
+{\em vp2} & const void pointer of type \hyperlink{classPoint}{Point} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}

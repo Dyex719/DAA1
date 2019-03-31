@@ -1,8 +1,9 @@
+/**
+ * @brief Header file for Point Class
+ * 
+ */
 #ifndef POINT_H
 #define POINT_H
-// #include <iostream>
-// #include <utility>
-#include<bits/stdc++.h>
 using namespace std;
 
 class Point
@@ -17,7 +18,6 @@ class Point
 	private:
 		double x;
 		double y;
-    pair <double,double> p;
 };
 
 #endif

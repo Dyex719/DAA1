@@ -1,0 +1,66 @@
+\hypertarget{classHull}{}\section{Hull Class Reference}
+\label{classHull}\index{Hull@{Hull}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classHull_ac157f37a1bb8197570e16ad151d39f11}{JM} (vector$<$ \hyperlink{classPoint}{Point} $>$ points)
+\begin{DoxyCompactList}\small\item\em Uses the Jarvis March Algorithm to bulid a convex hull. \end{DoxyCompactList}\item 
+void \hyperlink{classHull_a522f1506c8bb7285cba587bd41bf30eb}{GS} (vector$<$ \hyperlink{classPoint}{Point} $>$ points)
+\begin{DoxyCompactList}\small\item\em Uses the Graham Scan Algorithm to bulid a convex hull. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classHull_a522f1506c8bb7285cba587bd41bf30eb}\label{classHull_a522f1506c8bb7285cba587bd41bf30eb}} 
+\index{Hull@{Hull}!GS@{GS}}
+\index{GS@{GS}!Hull@{Hull}}
+\subsubsection{\texorpdfstring{G\+S()}{GS()}}
+{\footnotesize\ttfamily void Hull\+::\+GS (\begin{DoxyParamCaption}\item[{vector$<$ \hyperlink{classPoint}{Point} $>$}]{points }\end{DoxyParamCaption})}
+
+
+
+Uses the Graham Scan Algorithm to bulid a convex hull. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em points} & \\
+\hline
+\end{DoxyParams}
+Firstly, find the point with min y co-\/ordinate
+
+In case of a tie, choose the one with lower x co-\/ordinate
+
+Put the point with lowest y co-\/ordinate in the first position
+
+Sort all the following points with respect to the y\+\_\+min point
+
+If there is more than one point that makes the same angle with y\+\_\+min, then only take the point that is the furthest way.
+
+A convex hull must have at least 3 points
+
+Only choose the points when the top of the stack, second element in the stack and a point in the points vector make a left turn
+
+Output to file\mbox{\Hypertarget{classHull_ac157f37a1bb8197570e16ad151d39f11}\label{classHull_ac157f37a1bb8197570e16ad151d39f11}} 
+\index{Hull@{Hull}!JM@{JM}}
+\index{JM@{JM}!Hull@{Hull}}
+\subsubsection{\texorpdfstring{J\+M()}{JM()}}
+{\footnotesize\ttfamily void Hull\+::\+JM (\begin{DoxyParamCaption}\item[{vector$<$ \hyperlink{classPoint}{Point} $>$}]{points }\end{DoxyParamCaption})}
+
+
+
+Uses the Jarvis March Algorithm to bulid a convex hull. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em points} & \\
+\hline
+\end{DoxyParams}
+Get the point with the least x co-\/ordinate
+
+Starting from left\+\_\+idx, choose each subsequent point which makes the orientation counter-\/clockwise for all the remaining points.
+
+Write to file
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Hull_8h}{Hull.\+h}\item 
+\hyperlink{Hull_8cpp}{Hull.\+cpp}\end{DoxyCompactItemize}

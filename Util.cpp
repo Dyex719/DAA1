@@ -1,9 +1,25 @@
-#include<bits/stdc++.h>
+/**
+ * @file Util.cpp
+ * @author your name (you@domain.com)
+ * @brief Util Class which contains all the helper functions used in the convex hull algorithms.
+ * @version 0.1
+ * @date 2019-03-31
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
 #include "Util.h"
 #include "Hull.h"
+#include <math.h>
 using namespace std;
 Point p0;
 
+/**
+ * @brief Find the index of the point which has the least X co-ordinate
+ * 
+ * @param points vector<Point>
+ * @return int index
+ */
 int Util::findLeft(vector<Point> points)
 {
   int num = points.size();
@@ -18,6 +34,12 @@ int Util::findLeft(vector<Point> points)
   return min_x;
 }
 
+/**
+ * @brief Find the index of the point which has the least y co-ordinate
+ * 
+ * @param points vector<Point>
+ * @return int index
+ */
 int Util::findBottom(vector<Point> points)
 {
   int num = points.size();
@@ -32,12 +54,30 @@ int Util::findBottom(vector<Point> points)
   return min_y;
 }
 
+/**
+ * @brief Find the Euclidean distace between two points
+ * 
+ * @param a Point
+ * @param b Point
+ * @return double 
+ */
 double Util::findEuclideanDistance(Point a,Point b)
 {
   double distance = sqrt(pow(a.getY()-b.getY(),2)+pow(a.getX()-b.getX(),2));
   return distance;
 }
 
+/**
+ * @brief Find whether the points passed in make a clockwise turn or an anti-clockwise turn
+ * 
+ * @param a Point
+ * @param b Point
+ * @param c Point
+ * @return int 
+ * 0 -> Colinear
+ * 1 -> Clockwise
+ * -1 -> Counterclockwise
+ */
 int Util::findOrientation(Point a,Point b,Point c)
 {
   int cross_product = ((b.getY()-a.getY())*(c.getX()-b.getX()))-((b.getX()-a.getX())*(c.getY()-b.getY()));
@@ -49,6 +89,12 @@ int Util::findOrientation(Point a,Point b,Point c)
       return -1;
 }
 
+/**
+ * @brief Swap the values of two points
+ * 
+ * @param a Point
+ * @param b Point
+ */
 void Util::swapPoints(Point &a, Point &b)
 {
   Point temp;
@@ -57,6 +103,11 @@ void Util::swapPoints(Point &a, Point &b)
   b = temp;
 }
 
+/**
+ * @brief Helper function that prints out the values of all the points in a vector of Points
+ * 
+ * @param points 
+ */
 void Util::printAllPoints(vector<Point> points)
 {
   for(int i =0;i<points.size();i++)
@@ -66,6 +117,12 @@ void Util::printAllPoints(vector<Point> points)
   cout << endl;
 }
 
+/**
+ * @brief Reads input of co-ordinates from a file and stores them in a vector
+ * 
+ * @param input_path Location of the input file
+ * @return vector<Point> vector in which the input is stored
+ */
 vector<Point> Util::getInput(string input_path)
 {
   ifstream input(input_path);
@@ -78,8 +135,6 @@ vector<Point> Util::getInput(string input_path)
   }
   return points;
 }
-
-
 
 // int compare(const void *vp1, const void *vp2)
 // {

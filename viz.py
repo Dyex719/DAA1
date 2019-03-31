@@ -1,3 +1,9 @@
+"""@package Visualisation
+Script for Visualising the convex hull construction.
+
+Takes as input the co-ordinates of Points which are a part of the convex hull. This input will be from a file.
+Stores the images and the GIF which helps to visualise the hull construnction
+"""
 import matplotlib.pyplot as plt
 import imageio
 import os
