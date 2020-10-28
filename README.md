@@ -1,10 +1,10 @@
-# DAA1
+# DAA2
 Convex Hull Algorithms
 
-Build using make
+Made by:
 
-TODO:
+Aditya Addepalli 2015B1A70719H
 
-1. Add KPS
-2. Check Small Testcases
-3. Change some functions
+Chitti Ankith Reddy 2015B3A70534H
+
+KSSV Ramakrishna 2015B3A70610H
